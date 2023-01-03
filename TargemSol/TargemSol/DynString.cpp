@@ -10,7 +10,6 @@ DynString::DynString(const char* instr)
         arr[i] = instr[i];
     }
     arr[size] = '\0';
-    cout<<size<<endl;
 }
 
 DynString::DynString()
@@ -22,30 +21,17 @@ DynString::DynString()
 }
 
 DynString::~DynString()
-{
-   // cout<<arr<<endl;
-   // if(arr != nullptr)
-   //      delete []arr;
+{   
 }
-//
-// DynString::DynString(DynString&& instr) noexcept
-// {
-//     size = instr.size;
-//     arr = instr.arr;
-//     instr.size = 0;
-//     instr.arr = nullptr;
-// }
 
 DynString& DynString::operator+(const DynString& instr)
 {
     int n = size + instr.size;
     char* newArr = new char[n];
-
     for (int i = 0; i < size; i++)
     {
         newArr[i] = arr[i];
     }
-
     for (int i = 0; i < instr.size; i++)
     {
         newArr[(size + i)] = instr.arr[i];
@@ -68,21 +54,6 @@ DynString& DynString::operator=(const char* & instr)
     arr[size] = '\0';
     return *this;
 }
-//
-// DynString& DynString::operator=(DynString&& instr) noexcept
-// {
-//     if (this != &instr)
-//     {
-//         delete[] arr;
-//
-//         arr = instr.arr;
-//         size = instr.size;
-//
-//         instr.arr = nullptr;
-//         instr.size = 0;
-//     }
-//     return *this;
-// }
 
 int DynString::GetLenghtInput(const char* instr)
 {
